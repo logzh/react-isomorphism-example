@@ -5,4 +5,5 @@ react demo render in server side
 2. express react-server
 3. change the default view engine to ejs
 4. install react and react-dom
-5. create self component
+5. install babel
+6. create self component
