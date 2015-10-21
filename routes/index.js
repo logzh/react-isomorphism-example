@@ -10,7 +10,7 @@ var helloComponent = require('../component/hello');
 router.get('/', function (req, res, next) {
 
   var props = req.body || null;
-  var html = ReactDomServer.renderToString(
+  var html = ReactDomServer.renderToStaticMarkup(//renderToStaticMarkup repalce renderToString
       React.createElement(helloComponent, {name:', react render on server side'})
   );
 
