@@ -4,17 +4,17 @@ var router = express.Router();
 require('babel-core/register');
 var React = require('react');
 var ReactDomServer = require('react-dom/server');
-var helloComponent = require('../component/hello');
+var HelloComponent = require('../component/Hello');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-  var props = req.body || null;
-  var html = ReactDomServer.renderToString(//renderToStaticMarkup repalce renderToString
-      React.createElement(helloComponent, {name:', react render on server side'})
+  var props = req.query || null;
+  var html = ReactDomServer.renderToStaticMarkup(//renderToStaticMarkup repalce renderToString
+      React.createElement(HelloComponent, props)
   );
 
-  res.render('index', {title: 'Express', hello: html});
+  res.render('index', {title: 'Express', html: html, initData:props});
 });
 
 module.exports = router;

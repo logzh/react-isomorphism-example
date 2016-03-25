@@ -10,12 +10,11 @@ var users = require('./routes/users');
 
 var app = express();
 
-// view engine setup
-var engine = require('ejs-mate');
-
-app.engine('html', engine);
+app.engine('.html', require('ejs').__express);
+//设置视图模板的默认后缀名为.html,避免了每次res.Render("xx.html")的尴尬
 app.set('view engine', 'html');
-app.set('views', path.join(__dirname, 'views'));
+//设置模板文件文件夹,__dirname为全局变量,表示网站根目录
+app.set('views', __dirname + '/views');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

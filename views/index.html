@@ -1,2 +1,16 @@
-<% layout('layout') -%>
-<%- hello %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+<div id="wwq">
+    <%- html %>
+</div>
+<script>
+    window.__INITIAL_DATA__ = <%- JSON.stringify(initData) %>;
+</script>
+<script src="/dist/js/vendor.js"></script>
+<script src="/dist/js/hello.js"></script>
+</body>
+</html>
