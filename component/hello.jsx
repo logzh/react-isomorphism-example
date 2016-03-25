@@ -1,8 +1,18 @@
 import React from 'react';
 
-let Hello = React.createClass({
-  render () {
-    return <p>hello {this.props.name}</p>;
+var Hello = React.createClass({
+  getDefaultProps: function() {
+    return {name: 'world', count: 0}
+  },
+  getInitialState: function() {
+    return {name: this.props.name, count: this.props.count};
+  },
+  handleClick: function() {
+    this.setState({count: this.state.count + 1});
+  },
+  render: function() {
+
+    return <p onClick={this.handleClick}>hello {this.state.name}, 你点击我的次数:{this.state.count}</p>;
   }
 });
 
