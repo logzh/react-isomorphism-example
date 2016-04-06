@@ -4,7 +4,8 @@ var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('js/vendor.js');
 
 module.exports = {
   entry: {
-    "hello": "src/js/hello.js"
+    "hello": "src/js/hello.js",
+    "async": "src/js/async.js"
   },
   output: {
     path: path.join(__dirname, 'public/dist/'),//打包的目标目录
