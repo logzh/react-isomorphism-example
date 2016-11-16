@@ -4,7 +4,7 @@ var router = express.Router();
 require('babel-core/register');
 var React = require('react');
 var ReactDomServer = require('react-dom/server');
-var HelloComponent = require('../component/Hello');
+var HelloComponent = require('../resource/component/hello/index.jsx');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {

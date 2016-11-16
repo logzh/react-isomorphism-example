@@ -4,17 +4,17 @@ var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('js/vendor.js');
 
 module.exports = {
   entry: {
-    "hello": "src/js/hello.js",
-    "async": "src/js/async.js"
+    "hello": "js/hello.js",
+    "async": "js/async.js"
   },
   output: {
-    path: path.join(__dirname, 'public/dist/'),//打包的目标目录
+    path: path.join(__dirname, 'public/'),//打包的目标目录
     filename: 'js/[name].js',     //生成的文件名
     publicPath: '/'      //如果资源需要上传到cdn可以使用 http://mycdn/asset/
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
-    root: path.join(__dirname, 'public/')
+    root: path.join(__dirname, 'resource/')
   },
   module: {
     loaders: [ {
