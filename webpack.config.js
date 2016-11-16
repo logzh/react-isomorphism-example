@@ -13,10 +13,10 @@ module.exports = {
     publicPath: '/'      //如果资源需要上传到cdn可以使用 http://mycdn/asset/
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],// 配置可以不书写的后缀名
+    extensions: ['', '.js', '.jsx'],
     root: path.join(__dirname, 'public/')
   },
-  module: {//各种加载器
+  module: {
     loaders: [ {
       test: /\.jsx?$/,
       exclude: /node_modules/,
@@ -26,7 +26,7 @@ module.exports = {
       loader: 'style!css'
     }, {
       test: /\.(jpg|png|gif)$/,
-      loader: 'url?limit=8192'//小于8kb的图片转化为base64，css中其他的图片地址会被体会为打包的地址，此处用到了publicPath
+      loader: 'url?limit=8192'
     }]
   },
   plugins: [
