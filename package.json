@@ -1,5 +1,5 @@
 {
-  "name": "react-server",
+  "name": "react-isomorphism-example",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -26,6 +26,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

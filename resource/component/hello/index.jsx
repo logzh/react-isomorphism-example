@@ -1,5 +1,8 @@
 import React from 'react';
-// require('./index.css');
+var isNode = typeof window === 'undefined';
+if (!isNode){
+  require('./index.css');
+}
 
 var Hello = React.createClass({
   getDefaultProps: function() {
