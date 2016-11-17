@@ -19,11 +19,6 @@ router.get('/', function (req, res, next) {
 
 router.get('/async', function (req, res, next) {
 
-  //var props = req.query || null;
-  //var html = ReactDomServer.renderToStaticMarkup(//renderToStaticMarkup repalce renderToString
-  //    React.createElement(HelloComponent, props)
-  //);
-
   res.render('async', {title: 'Express'});
 });
 
