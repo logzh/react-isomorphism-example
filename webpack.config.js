@@ -7,8 +7,10 @@ var templateConfig = require('./html.webpack.config.js');
 
 var config = {
   entry: {
-    "hello": "js/hello.js",
-    "async": "js/async.js"
+    "cart":'entry/cart.js',
+    "cart-iso":'entry/cart-iso.js',
+    "hello": "entry/hello.js",
+    "async": "entry/async.js"
   },
   output: {
     path: path.join(__dirname, 'public/'),//打包的目标目录
