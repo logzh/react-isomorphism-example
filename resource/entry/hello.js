@@ -1,7 +1,7 @@
 require('../css/style.css');
 var React = require('react');
 var ReactDOM = require('react-dom');
-var HelloComponent = require('../component/hello/index.jsx');
+var HelloComponent = require('../component/Hello/index.jsx');
 
 var props = window.__INITIAL_DATA__;
 

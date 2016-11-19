@@ -8,6 +8,7 @@ var actions = require('../actions/cart');
 var Content = React.createClass({
   // mixins: [DefaultUserMixin],
   propTypes: {
+    carts: PropTypes.array,
     actions: PropTypes.shape({
       fetchCart: PropTypes.func,
       increaseCount: PropTypes.func,
@@ -19,15 +20,18 @@ var Content = React.createClass({
   },
   getDefaultProps: function() {
     return {
+      carts:[],
       actions: actions
     };
   },
   getInitialState: function() {
-    return store.getAll();
+    return this.props;//store.getAll();
   },
   componentDidMount: function() {
     store.addChangeListener(this._onChange);
-    actions.fetchCart();
+    if (this.props.carts.length === 0){
+      actions.fetchCart();
+    }
   },
   componentWillUnmount: function() {
     store.removeChangeListener(this._onChange);

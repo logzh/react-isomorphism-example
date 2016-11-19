@@ -1,8 +1,13 @@
 var config = [
   {
     title: '首页',
-    filename: '../views/index.html',
-    template: 'resource/html/index.html',
+    filename: '../views/home.html',
+    template: 'resource/html/home.html',
+    chunks: []
+  },{
+    title: 'hello',
+    filename: '../views/hello.html',
+    template: 'resource/html/hello.html',
     chunks: ['vendor', 'hello']
   },
   {

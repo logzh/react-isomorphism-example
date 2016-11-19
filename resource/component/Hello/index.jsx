@@ -9,7 +9,7 @@ var Hello = React.createClass({
     return {name: 'world', count: 0}
   },
   getInitialState: function() {
-    return {name: this.props.name, count: this.props.count};
+    return this.props;
   },
   handleClick: function() {
     this.setState({count: this.state.count + 1});
