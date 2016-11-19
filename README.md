@@ -14,7 +14,7 @@ webpack --watch
 ```
 npm start 
 ```
-4、打开网页 *[localhost:3000](localhost:3000)*
+4、打开网页 *[http://localhost:3000](http://localhost:3000)*
 
 其他：
 
