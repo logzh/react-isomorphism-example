@@ -32,6 +32,15 @@ var Store = objectAssign({}, EventEmitter.prototype, {
 // Register callback to handle all updates
 Dispatcher.register(function(action) {
   switch (action.type) {
+    case types.GET_INIT_DATA:
+      if(action.data.carts !== undefined){
+        _carts = action.data.carts;
+      }
+      if(action.data.isShow !== undefined){
+        isShow = action.data.isShow;
+      }
+      Store.emitChange();
+      break;
     case types.GET_SERVER_CARTS:
     case types.ADD_SERVER_CART:
       _carts = action.data;

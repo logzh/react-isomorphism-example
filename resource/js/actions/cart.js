@@ -4,6 +4,12 @@ var types = require('../constants/cart');
 var service = require('../service');
 
 var Actions = {
+  getInitData: function(data) {
+    Dispatcher.dispatch({ //Dispatcher分发一个事件，Store将会监听到
+      type: types.GET_INIT_DATA,
+      data: data
+    });
+  },
   fetchCart: function() {
     service.fetchCart().then(function(res) {
       Dispatcher.dispatch({ //Dispatcher分发一个事件，Store将会监听到

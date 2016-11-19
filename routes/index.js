@@ -32,7 +32,7 @@ router.get('/cart-iso', function(req, res, next) {
     totalCount += parseInt(item.count, 10);
   });
 
-  var props = {carts: carts, totalCount:totalCount};
+  var props = {carts: carts, totalCount:totalCount, isShow: true};
 
   var html = ReactDomServer.renderToStaticMarkup(//renderToStaticMarkup repalce renderToString
       React.createElement(Component, props)

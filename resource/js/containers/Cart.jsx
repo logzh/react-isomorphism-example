@@ -31,7 +31,11 @@ var Content = React.createClass({
     store.addChangeListener(this._onChange);
     if (this.props.carts.length === 0){
       actions.fetchCart();
+    }else {
+      actions.getInitData(this.props)
     }
+
+
   },
   componentWillUnmount: function() {
     store.removeChangeListener(this._onChange);
@@ -49,7 +53,7 @@ var Content = React.createClass({
       totalCount += parseInt(item.count, 10);
     });
 
-    return <Cart actions={props.actions} {...state}   totalCount={totalCount}/>;
+    return <Cart actions={props.actions} {...state}  totalCount={totalCount}/>;
   }
 });
 
