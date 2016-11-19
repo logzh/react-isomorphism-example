@@ -29,7 +29,7 @@ router.get('/cart-iso', function(req, res, next) {
   //http://wwq.qq.com/server/mall/goods/100046
 
   axios.get('http://localhost:3000/cgi/mall/cart').then(function(respone) {
-    var carts = respone.data.ee.ww;
+    var carts = respone.data;
     var totalCount = 0;
 
     carts.map(function(item) {
