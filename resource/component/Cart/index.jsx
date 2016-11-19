@@ -1,6 +1,6 @@
 import React from 'react';
 var List = require('./List');
-var Empty = require('./Empty');
+import Empty from './Empty'
 var noop = function() {};
 var isNode = typeof window === 'undefined';
 if (!isNode) {

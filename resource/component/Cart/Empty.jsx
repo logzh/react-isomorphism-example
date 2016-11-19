@@ -20,4 +20,5 @@ function Empty(props) {
   );
 }
 
-module.exports = Empty;
+export default Empty;
+// module.exports = Empty;
