@@ -20,6 +20,6 @@ npm start
 
 其他：
 
-- react-isomorphism example: *[localhost:3000/hello](localhost:3000/hello)*
-- react component use in client side: *[localhost:3000/cart](localhost:3000/cart)*
-- react-flux-isomorphism example: *[localhost:3000/hello-iso](localhost:3000/cart-iso)*
+- react-isomorphism example: *[http://localhost:3000/hello](http://localhost:3000/hello)*
+- react component use in client side: *[http://localhost:3000/cart](http://localhost:3000/cart)*
+- react-flux-isomorphism example: *[http://localhost:3000/hello-iso](http://localhost:3000/cart-iso)*
