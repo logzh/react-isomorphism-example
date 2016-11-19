@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var mallRoute = require('./routes/mall');
-var usersRoute = require('./routes/user');
+var cgiRoute = require('./routes/cgi');
 
 var app = express();
 
@@ -26,8 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/mall', mallRoute);
-app.use('/user', usersRoute);
+app.use('/cgi', cgiRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -37,7 +35,7 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
-
+app.set('env', 'development');
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {

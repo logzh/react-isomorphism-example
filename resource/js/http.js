@@ -10,9 +10,9 @@ axios.interceptors.request.use(function (config) {
     config.data = qs.stringify(config.data)
   }
 
-  // if (config.url.match(/\.json$/) === null) {
-  //   config.url = '/cgi' + config.url;
-  // }
+  if (config.url.match(/\.json$/) === null) {
+    config.url = '/cgi' + config.url;
+  }
 
   return config;
 }, function (error) {

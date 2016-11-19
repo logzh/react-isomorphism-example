@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var axios = require('axios');
 
 require('babel-core/register');
 var React = require('react');
@@ -11,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/hello', function(req, res, next) {
   var HelloComponent = require('../resource/component/Hello/index.jsx');
-  var props = {name:'spence', count:0};
+  var props = {name: 'spence', count: 0};
   var html = ReactDomServer.renderToStaticMarkup(//renderToStaticMarkup repalce renderToString
       React.createElement(HelloComponent, props)
   );
@@ -25,20 +26,27 @@ router.get('/cart', function(req, res, next) {
 
 router.get('/cart-iso', function(req, res, next) {
   var Component = require('../resource/component/Cart/index.jsx');
-  var carts = require('../json/cart.json');
-  var totalCount = 0;
+  //http://wwq.qq.com/server/mall/goods/100046
 
-  carts.map(function(item) {
-    totalCount += parseInt(item.count, 10);
-  });
+  axios.get('http://localhost:3000/cgi/mall/cart').then(function(respone) {
+    var carts = respone.data.ee.ww;
+    var totalCount = 0;
 
-  var props = {carts: carts, totalCount:totalCount, isShow: true};
+    carts.map(function(item) {
+      totalCount += parseInt(item.count, 10);
+    });
 
-  var html = ReactDomServer.renderToStaticMarkup(//renderToStaticMarkup repalce renderToString
-      React.createElement(Component, props)
-  );
+    var props = {carts: carts, totalCount: totalCount, isShow: true};
 
-  res.render('cart-iso', {title: '同构直出', html: html, initData: props});
+    var html = ReactDomServer.renderToStaticMarkup(//renderToStaticMarkup repalce renderToString
+        React.createElement(Component, props)
+    );
+
+    res.render('cart-iso', {title: '同构直出', html: html, initData: props});
+  }).catch(function(err) {
+    next(err)
+  })
+
 });
 
 router.get('/async', function(req, res, next) {
