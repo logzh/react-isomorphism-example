@@ -22,9 +22,10 @@ var Hello = React.createClass({
   },
   render: function() {
 
-    return <p className="hello" onClick={this.handleClick}>
-      <Greeting name={this.state.name}/>, 你点击我的次数:{this.state.count}
-    </p>;
+    return <div className="hello" onClick={this.handleClick}>
+      <Greeting name={this.state.name}/>
+      <span>你点击我的次数:{this.state.count}</span>
+    </div>;
   }
 });
 
