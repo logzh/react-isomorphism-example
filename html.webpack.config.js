@@ -32,6 +32,11 @@ var config = [
     filename: '../views/async.html',
     template: 'resource/html/async.html',
     chunks: ['vendor', 'async']
+  },{
+    title: 'hello-tig',
+    filename: '../views/hello-tig.html',
+    template: 'resource/html/hello-tig.html',
+    chunks: ['vendor', 'hello-tig']
   }
 ];
 

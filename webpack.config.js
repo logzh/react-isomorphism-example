@@ -10,6 +10,7 @@ var config = {
     "cart":'entry/cart.js',
     "cart-iso":'entry/cart-iso.js',
     "hello": "entry/hello.js",
+    "hello-tig": "entry/hello-tig.js",
     "async": "entry/async.js"
   },
   output: {
@@ -22,8 +23,8 @@ var config = {
     root: path.join(__dirname, 'resource/')
   },
   externals: {
-    // 'react': 'React',
-    // 'react-dom': 'ReactDOM'
+    'react': 'React',
+    'react-dom': 'ReactDOM'
   },
   module: {
     loaders: [ {
