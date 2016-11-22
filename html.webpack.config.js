@@ -5,9 +5,9 @@ var config = [
     template: 'resource/html/home.html',
     chunks: []
   },{
-    title: 'normal',
-    filename: '../views/normal.html',
-    template: 'resource/html/normal.html',
+    title: 'ejs',
+    filename: '../views/ejs.html',
+    template: 'resource/html/ejs.html',
     chunks: []
   },{
     title: 'hello',

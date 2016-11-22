@@ -10,8 +10,8 @@ router.get('/', function(req, res, next) {
   res.render('home', {title: 'home'});
 });
 
-router.get('/normal', function(req, res, next) {
-  res.render('normal', {title: 'normal', label:'来自服务器', todos:[{label:'111'}, {label:'222'}]});
+router.get('/ejs', function(req, res, next) {
+  res.render('ejs', {title: 'ejs 简单前后端分离', label:'ejs 简单前后端分离、前后端共用模版、前端更多的优化才有可能', todos:[{label:'111'}, {label:'222'}]});
 });
 
 router.get('/hello', function(req, res, next) {

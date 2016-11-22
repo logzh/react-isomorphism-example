@@ -22,8 +22,8 @@ var config = {
     root: path.join(__dirname, 'resource/')
   },
   externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM'
+    // 'react': 'React',
+    // 'react-dom': 'ReactDOM'
   },
   module: {
     loaders: [ {
