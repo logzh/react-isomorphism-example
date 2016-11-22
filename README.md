@@ -8,7 +8,7 @@ npm install
 ```
 2、webpack 生成资源，并监听资源变化
 ```
-webpack --watch 
+npm run watch 
 ```
 3、启动服务器
 ```

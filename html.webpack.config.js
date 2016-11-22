@@ -5,6 +5,11 @@ var config = [
     template: 'resource/html/home.html',
     chunks: []
   },{
+    title: 'normal',
+    filename: '../views/normal.html',
+    template: 'resource/html/normal.html',
+    chunks: []
+  },{
     title: 'hello',
     filename: '../views/hello.html',
     template: 'resource/html/hello.html',

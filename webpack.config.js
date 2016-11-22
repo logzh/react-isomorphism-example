@@ -21,6 +21,10 @@ var config = {
     extensions: ['', '.js', '.jsx'],
     root: path.join(__dirname, 'resource/')
   },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM'
+  },
   module: {
     loaders: [ {
       test: /\.jsx?$/,

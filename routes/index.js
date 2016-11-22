@@ -10,6 +10,10 @@ router.get('/', function(req, res, next) {
   res.render('home', {title: 'home'});
 });
 
+router.get('/normal', function(req, res, next) {
+  res.render('normal', {title: 'normal', label:'来自服务器', todos:[{label:'111'}, {label:'222'}]});
+});
+
 router.get('/hello', function(req, res, next) {
   var HelloComponent = require('../resource/component/Hello/index.jsx');
   var props = {name: 'spence', count: 0};
