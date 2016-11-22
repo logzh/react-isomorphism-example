@@ -2,10 +2,6 @@ var express = require('express');
 var router = express.Router();
 var axios = require('axios');
 
-require('babel-core/register');
-var React = require('react');
-var ReactDomServer = require('react-dom/server');
-
 router.get('/', function(req, res, next) {
   res.render('home', {title: 'home'});
 });
@@ -15,6 +11,10 @@ router.get('/ejs', function(req, res, next) {
 });
 
 router.get('/hello', function(req, res, next) {
+  require('babel-core/register');
+  var React = require('react');
+  var ReactDomServer = require('react-dom/server');
+
   var HelloComponent = require('../resource/component/Hello/index.jsx');
   var props = {name: 'spence', count: 0};
   var html = ReactDomServer.renderToStaticMarkup(//renderToStaticMarkup repalce renderToString
@@ -29,6 +29,10 @@ router.get('/cart', function(req, res, next) {
 });
 
 router.get('/cart-iso', function(req, res, next) {
+  require('babel-core/register');
+  var React = require('react');
+  var ReactDomServer = require('react-dom/server');
+
   var Component = require('../resource/component/Cart/index.jsx');
   //http://wwq.qq.com/server/mall/goods/100046
 
@@ -55,6 +59,20 @@ router.get('/cart-iso', function(req, res, next) {
 
 router.get('/async', function(req, res, next) {
   res.render('async', {title: 'Express'});
+});
+
+router.get('/hello-tig', function(req, res, next) {
+
+  var React = require('react');
+  var ReactDomServer = require('react-dom/server');
+
+  var HelloComponent = require('../public/tig').HelloReact;
+  var props = {name: 'spence', count: 0};
+  var html = ReactDomServer.renderToStaticMarkup(//renderToStaticMarkup repalce renderToString
+      React.createElement(HelloComponent, props)
+  );
+
+  res.render('hello-tig', {title: 'Hello', html: html, initData: props});
 });
 
 module.exports = router;
