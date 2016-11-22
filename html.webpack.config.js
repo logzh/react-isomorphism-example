@@ -8,7 +8,7 @@ var config = [
     title: 'ejs',
     filename: '../views/ejs.html',
     template: 'resource/html/ejs.html',
-    chunks: []
+    chunks: ['vendor', 'ejs-demo']
   },{
     title: 'hello',
     filename: '../views/hello.html',

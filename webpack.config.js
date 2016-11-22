@@ -11,6 +11,7 @@ var config = {
     "cart-iso":'entry/cart-iso.js',
     "hello": "entry/hello.js",
     "hello-tig": "entry/hello-tig.js",
+    "ejs-demo": "entry/ejs-demo.js",
     "async": "entry/async.js"
   },
   output: {
@@ -23,6 +24,7 @@ var config = {
     root: path.join(__dirname, 'resource/')
   },
   externals: {
+    'jquery': 'jQuery',
     'react': 'React',
     'react-dom': 'ReactDOM'
   },
