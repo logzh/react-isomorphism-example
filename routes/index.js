@@ -8,6 +8,8 @@ router.get('/', function(req, res, next) {
 
 router.get('/ejs', function(req, res, next) {
 
+  // 可以同时向后端多个接口发起请求
+
   axios.get('http://localhost:3000/cgi/user/info').then(function(respone) {
     var user = respone.data;
 
