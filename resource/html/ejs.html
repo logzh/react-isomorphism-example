@@ -13,9 +13,16 @@
         font-size: 24px;
         background-color: yellow;
     }
+    .avatar{
+        height: 100px;
+        width: 100px;
+        border-radius:50px;
+    }
 </style>
 <div id="app">
-    <p><%= label%></p>
+    <p>用户名：<%= user.nickname %></p>
+    <p>用户图像：<img class="avatar" src="<%= user.head %>" alt=""></p>
+    <p><%= label %></p>
     <% if (todos.length) { %>
     <ul class="todos">
         <% for(var i=0; i<todos.length; i++) {%>

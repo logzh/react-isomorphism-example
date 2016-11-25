@@ -7,8 +7,22 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/ejs', function(req, res, next) {
-  res.render('ejs', {title: 'ejs 简单前后端分离', label:'中途岛前后端分离: 类似php开发，但填充数据交给了前端开发，ejs类模版使得前端更多的优化才有可能，' +
-  '但ejs类模版引擎仅仅只是模版引擎', todos:[{label:'111'}, {label:'222'}]});
+
+  axios.get('http://localhost:3000/cgi/user/info').then(function(respone) {
+    var user = respone.data;
+
+    res.render('ejs', {
+      title: 'ejs 简单前后端分离',
+      label: '中途岛前后端分离: 类似php开发，但填充数据交给了前端开发，ejs类模版使得前端更多的优化才有可能，' +
+      '但ejs类模版引擎仅仅只是模版引擎',
+      todos: [{label: '111'}, {label: '222'}],
+      user: user
+    });
+  }).catch(function(err) {
+    next(err)
+  })
+
+
 });
 
 router.get('/hello', function(req, res, next) {
