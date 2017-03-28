@@ -28,11 +28,12 @@ router.get('/ejs', function(req, res, next) {
 });
 
 router.get('/hello', function(req, res, next) {
-  require('babel-core/register');
+  // require('babel-core/register');
   var React = require('react');
   var ReactDomServer = require('react-dom/server');
 
-  var HelloComponent = require('../resource/component/Hello/index.jsx');
+  // var HelloComponent = require('../resource/component/Hello/index.jsx');
+  var HelloComponent = require('../server/server.hello');
   var props = {name: 'spence', count: 0};
   var html = ReactDomServer.renderToStaticMarkup(//renderToStaticMarkup repalce renderToString
       React.createElement(HelloComponent, props)
@@ -46,11 +47,12 @@ router.get('/cart', function(req, res, next) {
 });
 
 router.get('/cart-iso', function(req, res, next) {
-  require('babel-core/register');
+  // require('babel-core/register');
   var React = require('react');
   var ReactDomServer = require('react-dom/server');
 
-  var Component = require('../resource/component/Cart/index.jsx');
+  // var Component = require('../resource/component/Cart/index.jsx');
+  var Component = require('../server/server.cart');
   //http://wwq.qq.com/server/mall/goods/100046
 
   axios.get('http://localhost:3000/cgi/mall/cart').then(function(respone) {
