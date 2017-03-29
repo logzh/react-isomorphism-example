@@ -6,7 +6,6 @@ var store = require('../store/cart');
 var actions = require('../actions/cart');
 
 var Content = React.createClass({
-  // mixins: [DefaultUserMixin],
   propTypes: {
     carts: PropTypes.array,
     actions: PropTypes.shape({
@@ -34,8 +33,6 @@ var Content = React.createClass({
     }else {
       actions.getInitData(this.props)
     }
-
-
   },
   componentWillUnmount: function() {
     store.removeChangeListener(this._onChange);
