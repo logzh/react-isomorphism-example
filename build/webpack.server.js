@@ -10,7 +10,7 @@ var config = {
     'server.cart': 'component/Cart/index.jsx'
   },
   output: {
-    path: path.join(__dirname, '../server'),//打包的目标目录
+    path: path.join(__dirname, '../server/dist'),//打包的目标目录
     filename: '[name].js',     //生成的文件名
     libraryTarget: 'commonjs2'
   },

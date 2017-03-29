@@ -1,5 +1,5 @@
 var srcDir = './src/html';
-var distDir = '../views/';
+var distDir = '../server/views/';
 var config = [
   {
     title: '首页',

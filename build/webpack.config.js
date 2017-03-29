@@ -6,11 +6,6 @@ var templateConfig = require('./html.webpack.config.js');
 
 var clientConfig = {
   context: path.resolve(__dirname, '..'),
-  devServer: {
-    contentBase: path.join(__dirname, "resource"),
-    compress: true,
-    port: 9000
-  },
   entry: {
     'cart': 'entry/cart.js',
     'cart-iso': 'entry/cart-iso.js',
@@ -27,7 +22,7 @@ var clientConfig = {
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      path.resolve(__dirname, '../resource'),
+      path.resolve(__dirname, '../src'),
       'node_modules']
   },
   externals: {
@@ -76,18 +71,18 @@ var serverConfig = {
   target: 'node',
   devtool: 'source-map',
   entry: {
-    'server.hello': 'component/Hello/index.jsx',
-    'server.cart': 'component/Cart/index.jsx'
+    'hello': 'component/Hello/index.jsx',
+    'cart': 'component/Cart/index.jsx'
   },
   output: {
-    path: path.join(__dirname, '../server'),//打包的目标目录
+    path: path.join(__dirname, '../server/dist'),//打包的目标目录
     filename: '[name].js',     //生成的文件名
     libraryTarget: 'commonjs2'
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      path.resolve(__dirname, '../resource'),
+      path.resolve(__dirname, '../src'),
       'node_modules']
   },
   externals: {
@@ -118,6 +113,6 @@ var serverConfig = {
     new ExtractTextPlugin('[name].css')
   ]
 
-}
+};
 
 module.exports = [clientConfig, serverConfig];
