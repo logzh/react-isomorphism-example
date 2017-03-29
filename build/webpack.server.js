@@ -4,7 +4,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var config = {
   target: 'node',
-  devtool: '#source-map',
+  devtool: 'source-map',
   entry: {
     'server.hello': 'component/Hello/index.jsx',
     'server.cart': 'component/Cart/index.jsx'
@@ -38,7 +38,7 @@ var config = {
       })
     }, {
       test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
-      loader: 'url-loader?limit=1024&name=[hash].[ext]'
+      loader: 'url-loader?limit=1024&name=[name].[ext]'
     }, {
       test: /\.html$/,
       loader: 'html-loader'

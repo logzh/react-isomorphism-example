@@ -1,11 +1,16 @@
 var webpack = require('webpack');
 var path = require('path');
-var commonsPlugin = new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.js'});
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var templateConfig = require('./html.webpack.config.js');
 
-var config = {
+var clientConfig = {
+  context: path.resolve(__dirname, '..'),
+  devServer: {
+    contentBase: path.join(__dirname, "resource"),
+    compress: true,
+    port: 9000
+  },
   entry: {
     'cart': 'entry/cart.js',
     'cart-iso': 'entry/cart-iso.js',
@@ -43,21 +48,76 @@ var config = {
       })
     }, {
       test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
-      loader: 'url-loader?limit=1024&name=[hash].[ext]'
+      loader: 'url-loader?limit=1024&name=[name].[hash:8].[ext]'
+    }, {
+      test: /\.html$/,
+      loader: 'html-loader'
+    }]
+  },
+  watch: true,
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin(
+        {
+          name: 'vendor',
+          filename: '[name].js'
+        }
+    ),
+    new ExtractTextPlugin('[name].css'),
+  ]
+
+};
+
+for (var i = 0; i < templateConfig.length; i++) {
+  clientConfig.plugins.push(new HtmlWebpackPlugin(templateConfig[i]));
+}
+
+var serverConfig = {
+  watch:true,
+  target: 'node',
+  devtool: 'source-map',
+  entry: {
+    'server.hello': 'component/Hello/index.jsx',
+    'server.cart': 'component/Cart/index.jsx'
+  },
+  output: {
+    path: path.join(__dirname, '../server'),//打包的目标目录
+    filename: '[name].js',     //生成的文件名
+    libraryTarget: 'commonjs2'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    modules: [
+      path.resolve(__dirname, '../resource'),
+      'node_modules']
+  },
+  externals: {
+    'jquery': 'jQuery',
+    'react': 'React',
+    'react-dom': 'ReactDOM'
+  },
+  module: {
+    rules: [{
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader'
+    }, {
+      test: /\.css$/,
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: 'css-loader'
+      })
+    }, {
+      test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
+      loader: 'url-loader?limit=1024&name=[name].[ext]'
     }, {
       test: /\.html$/,
       loader: 'html-loader'
     }]
   },
   plugins: [
-    commonsPlugin,
     new ExtractTextPlugin('[name].css')
   ]
 
-};
-
-for (var i = 0; i < templateConfig.length; i++) {
-  config.plugins.push(new HtmlWebpackPlugin(templateConfig[i]));
 }
 
-module.exports = config;
+module.exports = [clientConfig, serverConfig];
