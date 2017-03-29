@@ -1,4 +1,4 @@
-var srcDir = './resource/html';
+var srcDir = './src/html';
 var distDir = '../views/';
 var config = [
   {

@@ -17,7 +17,7 @@ var config = {
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      path.resolve(__dirname, '../resource'),
+      path.resolve(__dirname, '../src'),
       'node_modules']
   },
   externals: {
