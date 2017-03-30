@@ -45,6 +45,9 @@ router.get('/hello', function(req, res, next) {
 router.get('/cart', function(req, res, next) {
   res.render('cart', {title: '非直出', html: '', initData: {carts: []}});
 });
+router.get('/cart2', function(req, res, next) {
+  res.render('cart2', {title: '非直出', html: '', initData: {carts: []}});
+});
 
 router.get('/cart-iso', function(req, res, next) {
   var React = require('react');

@@ -24,6 +24,12 @@ var config = [
     chunks: ['vendor', 'cart']
   },
   {
+    title: 'cart2',
+    filename: distDir + 'cart2.html',
+    template: srcDir + '/cart.html',
+    chunks: ['vendor', 'cart2']
+  },
+  {
     title: 'cart-iso',
     filename: distDir + 'cart-iso.html',
     template: srcDir + '/cart.html',

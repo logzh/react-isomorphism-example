@@ -8,6 +8,7 @@ var clientConfig = {
   context: path.resolve(__dirname, '..'),
   entry: {
     'cart': 'entry/cart.js',
+    'cart2': 'entry/cart2.js',
     'cart-iso': 'entry/cart-iso.js',
     'hello': 'entry/hello.js',
     'hello-tig': 'entry/hello-tig.js',
