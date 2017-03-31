@@ -1,6 +1,7 @@
 # react-isomorphism-example
 
 React 开发同构应用，即 React 组件在服务端与客户端共用，服务端直出html
+
 数据流使用redux
 
 1、安装模块
