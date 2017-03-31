@@ -5,6 +5,20 @@ var React = require('react');
 var ReactDomServer = require('react-dom/server');
 
 router.get('/', function(req, res, next) {
+
+  var getData1 = function() {
+    return axios.get('http://localhost:3000/cgi/user/info');
+  }
+
+  var getData2 = function() {
+    return axios.get('http://localhost:3000/cgi/mall/cart');
+  }
+
+  axios.all([getData1(), getData2()])
+      .then(axios.spread(function(data1, data2) {
+        // Both requests are now complete
+      }));
+
   res.render('home', {title: 'home'});
 });
 
