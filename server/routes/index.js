@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var axios = require('axios');
+var React = require('react');
+var ReactDomServer = require('react-dom/server');
 
 router.get('/', function(req, res, next) {
   res.render('home', {title: 'home'});
@@ -28,11 +30,6 @@ router.get('/ejs', function(req, res, next) {
 });
 
 router.get('/hello', function(req, res, next) {
-  // require('babel-core/register');
-  var React = require('react');
-  var ReactDomServer = require('react-dom/server');
-
-  // var HelloComponent = require('../resource/component/Hello/index.jsx');
   var HelloComponent = require('../dist/hello');
   var props = {name: 'spence', count: 0};
   var html = ReactDomServer.renderToStaticMarkup(//renderToStaticMarkup repalce renderToString
@@ -50,9 +47,6 @@ router.get('/cart2', function(req, res, next) {
 });
 
 router.get('/cart-iso', function(req, res, next) {
-  var React = require('react');
-  var ReactDomServer = require('react-dom/server');
-
   var Component = require('../dist/cart');
 
   axios.get('http://localhost:3000/cgi/mall/cart').then(function(respone) {
@@ -81,10 +75,6 @@ router.get('/async', function(req, res, next) {
 });
 
 router.get('/hello-tig', function(req, res, next) {
-
-  var React = require('react');
-  var ReactDomServer = require('react-dom/server');
-
   var HelloComponent = require('../public/tig').HelloReact;
   var props = {name: 'spence', count: 0};
   var html = ReactDomServer.renderToStaticMarkup(//renderToStaticMarkup repalce renderToString
