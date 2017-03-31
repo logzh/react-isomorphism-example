@@ -35,10 +35,8 @@ class CartStore extends ReduceStore {
   }
 
   reduce(state, action) {
-    console.log(action.type)
-    console.log(action.data)
-    switch (action.type) {
 
+    switch (action.type) {
       case types.GET_INIT_DATA:
         if (action.data.carts !== undefined) {
           state.carts = action.data.carts;
@@ -48,6 +46,7 @@ class CartStore extends ReduceStore {
         }
         return state;
         break;
+
       case types.GET_SERVER_CARTS:
       case types.ADD_SERVER_CART:
         state.carts = action.data;
@@ -56,11 +55,18 @@ class CartStore extends ReduceStore {
         break;
 
       case types.CART_INC_COUNT:
-        state.carts = state.carts.map(item =>
-            item.sizeId == action.meta.sizeId ?
-                Object.assign({}, item, {count: item.count + 1}) :
-                item
+        console.log('before');
+        console.log(state)
+        state.carts = state.carts.map(function(item) {
+              console.log(item.sizeId)
+              console.log(action.meta.sizeId)
+              return item.sizeId == action.meta.sizeId ?
+                  Object.assign({}, item, {count: item.count + 1}) :
+                  item
+            }
         );
+        console.log('after');
+        console.log(state)
         return state;
         break;
 
