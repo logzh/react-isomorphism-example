@@ -1,16 +1,16 @@
 # react-isomorphism-example
 
-React 开发同构应用，即 React 组件在服务端与客户端共用，服务端直出html
+`React` 开发同构应用，即 `React` 组件在服务端与客户端共用，服务端直出`Html`
 
-数据流使用redux
+数据流使用`Redux`
 
 1、安装模块
 ```
-npm install 
+yarn install 
 ```
 2、webpack 生成资源，并监听资源变化
 ```
-npm run watch 
+yarn run build 
 ```
 3、启动服务器
 ```
