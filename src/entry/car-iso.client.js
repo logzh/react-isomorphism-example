@@ -1,4 +1,4 @@
-var props = window.__INITIAL_DATA__;
+require('../css/common.css');
 
 import React from 'react';
 import { render } from 'react-dom';
@@ -7,9 +7,8 @@ import { Provider } from 'react-redux';
 import Container from '../containers/Cart';
 import configureStore from '../stores/cart';
 
-require('../css/common.css');
-
-const store = configureStore(props);
+const preloadedState = window.__INITIAL_DATA__;
+const store = configureStore(preloadedState);
 
 render(
     <Provider store={store}>
