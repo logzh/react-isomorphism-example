@@ -7,13 +7,8 @@ var templateConfig = require('./html.webpack.config.js');
 var clientConfig = {
   context: path.resolve(__dirname, '..'),
   entry: {
-    'cart': 'entry/cart.js',
-    'cart2': 'entry/cart2.js',
-    'cart-iso': 'entry/cart-iso.js',
-    'hello': 'entry/hello.js',
-    'hello-tig': 'entry/hello-tig.js',
-    'ejs-demo': 'entry/ejs-demo.js',
-    'async': 'entry/async.js'
+    'cart': 'entry/cart.client.js',
+    'cart-iso': 'entry/car-iso.client.js'
   },
   output: {
     path: path.join(__dirname, '../public/'),//打包的目标目录
@@ -72,8 +67,7 @@ var serverConfig = {
   target: 'node',
   devtool: 'source-map',
   entry: {
-    'hello': 'component/Hello/index.jsx',
-    'cart': 'component/Cart/index.jsx'
+    'cart': 'entry/cart-iso.server.js'
   },
   output: {
     path: path.join(__dirname, '../server/dist'),//打包的目标目录
