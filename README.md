@@ -18,4 +18,4 @@ npm start
 ```
 4、打开网页 
 - 非同构页：*[http://localhost:3000/cart](http://localhost:3000/cart)*
-- 同构页：*[http://localhost:3000/cart-iso](http://localhost:3000/cart-iso)
+- 同构页：*[http://localhost:3000/cart-iso](http://localhost:3000/cart-iso)*
