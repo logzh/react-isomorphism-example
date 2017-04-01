@@ -1,16 +1,18 @@
-var srcDir = './src/template';
-var distDir = '../server/views/';
+var path = require('path');
+var srcDir = path.resolve(__dirname, '../src/template');
+var distDir = path.join(__dirname, '../server/views');
+
 var config = [
   {
     title: 'cart',
-    filename: distDir + 'cart.html',
+    filename: distDir + '/cart.html',
     template: srcDir + '/cart.html',
     chunks: ['vendor', 'cart']
   }
   ,
   {
     title: 'cart-iso',
-    filename: distDir + 'cart-iso.html',
+    filename: distDir + '/cart-iso.html',
     template: srcDir + '/cart.html',
     chunks: ['vendor', 'cart-iso']
   }

@@ -5,13 +5,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var templateConfig = require('./html.webpack.config.js');
 
 var clientConfig = {
-  context: path.resolve(__dirname, '..'),
   entry: {
     'cart': 'entry/cart.client.js',
     'cart-iso': 'entry/car-iso.client.js'
   },
   output: {
-    path: path.join(__dirname, '../public/'),//打包的目标目录
+    path: path.join(__dirname, '../public/build'),//打包的目标目录
     filename: '[name].js',     //生成的文件名
     publicPath: '/'      //如果资源需要上传到cdn可以使用 http://mycdn/asset/
   },
@@ -109,5 +108,5 @@ var serverConfig = {
   ]
 
 };
-
+console.log(process.env.NODE_ENV);
 module.exports = [clientConfig, serverConfig];
