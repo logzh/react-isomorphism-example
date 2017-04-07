@@ -8,6 +8,6 @@ const Types = {
   CART_UPDATE_COUNT: 'CART_UPDATE_COUNT',
   CART_DEL_ITEM: 'CART_DEL_ITEM',
   SWITCH_PANEL: 'SWITCH_PANEL'
-};
+}
 
-export {Types};
+export {Types}
