@@ -1,13 +1,27 @@
 {
+  "parser": "babel-eslint",
   "env": {
-    "node": true
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "commonjs": true
   },
-  "ecmaFeatures": {
-    "jsx": true
+  "parserOptions": {
+    "ecmaFeatures": {
+      "ecmaVersion": 6,
+      "experimentalObjectRestSpread": true,
+      "jsx": true,
+      "arrowFunctions": true,
+      "classes": true,
+      "modules": true,
+      "defaultParams": true
+    },
+    "sourceType": "module"
   },
   "globals": {
   },
   "plugins": [
+    "react"
   ],
   "extends": [
     "standard",
@@ -15,6 +29,7 @@
     "standard-jsx"
   ],
   "rules": {
+    "jsx-quotes": ["error", "prefer-double"],
     "comma-dangle": 0,
     "no-console": 0,
     "id-length": 0,

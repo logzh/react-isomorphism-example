@@ -1,22 +1,22 @@
-import React, {PropTypes, Component} from 'react';
+import React, {PropTypes} from 'react'
 
-var App = function(props) {
+var App = function (props) {
   return (
-      <div>
-        <div>{props.user.name}</div>
-        {props.children}
-      </div>
-  );
-};
+    <div>
+      <div>{props.user.name }</div>
+      {props.children}
+    </div>
+  )
+}
 
 App.propTypes = {
-  user: PropTypes.object,
-  loading: PropTypes.number
-};
+  user: PropTypes.object
+  // loading: PropTypes.number
+}
 
 App.defaultProps = {
-  user: {name:''},
+  user: {name: ''},
   loading: 0
-};
+}
 
-module.exports = App;
+export default App
