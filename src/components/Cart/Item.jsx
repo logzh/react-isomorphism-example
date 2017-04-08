@@ -20,8 +20,9 @@ class Item extends React.Component {
     const {id, sizeId, count} = this.props.item
     this.props.increaseCount({id, sizeId, count})
   }
-  deleteItem (item) {
-    this.props.deleteItem(item)
+
+  deleteItem () {
+    this.props.deleteItem(this.props.item)
   }
 
   updateCount (e) {
@@ -56,7 +57,7 @@ class Item extends React.Component {
           <p>{'￥' + (props.item.price * 100 * props.item.count) / 100}</p>
         </div>
         <div className="operate">
-          <i className="del-ico" onClick={this.deleteItem(props.item)}><span>删除</span></i>
+          <i className="del-ico" onClick={this.deleteItem}><span>删除</span></i>
         </div>
       </li>
     )

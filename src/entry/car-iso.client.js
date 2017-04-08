@@ -3,10 +3,11 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 
 import Container from '../containers/Cart'
-import configureStore from '../stores/cart'
+import reducer from '../reducers/cart'
+import configureStore from '../stores/base'
 
 const preloadedState = window.__INITIAL_DATA__
-const store = configureStore(preloadedState)
+const store = configureStore(reducer, preloadedState)
 
 require('../css/common.css')
 

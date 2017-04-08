@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Empty from './Empty'
 import List from './List'
 var noop = function () {}
@@ -7,22 +7,9 @@ if (!isNode) {
   require('./index.css')
 }
 
-var Cart = React.createClass({
-  getDefaultProps: function () {
-    return {
-      totalCount: 0,
-      carts: [],
-      actions: {
-        increaseCount: noop,
-        decreaseCount: noop,
-        updateCount: noop,
-        deleteItem: noop,
-        switchPanel: noop
-      }
-    }
-  },
-  render: function () {
-    var props = this.props
+class Cart extends Component {
+  render () {
+    let props = this.props
 
     return (
       <div className="cart-main">
@@ -42,6 +29,18 @@ var Cart = React.createClass({
       </div>
     )
   }
-})
+}
 
-module.exports = Cart
+Cart.getDefaultProps = {
+  totalCount: 0,
+  carts: [],
+  actions: {
+    increaseCount: noop,
+    decreaseCount: noop,
+    updateCount: noop,
+    deleteItem: noop,
+    switchPanel: noop
+  }
+}
+
+export default Cart

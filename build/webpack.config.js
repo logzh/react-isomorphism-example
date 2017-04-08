@@ -1,8 +1,8 @@
-var webpack = require('webpack');
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var templateConfig = require('./html.webpack.config.js');
+var webpack = require('webpack')
+var path = require('path')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var templateConfig = require('./html.webpack.config.js')
 
 var clientConfig = {
   entry: {
@@ -10,9 +10,9 @@ var clientConfig = {
     'cart-iso': 'entry/car-iso.client.js'
   },
   output: {
-    path: path.join(__dirname, '../public/build'),//打包的目标目录
-    filename: '[name].js',     //生成的文件名
-    publicPath: '/'      //如果资源需要上传到cdn可以使用 http://mycdn/asset/
+    path: path.join(__dirname, '../public/build'), // 打包的目标目录
+    filename: '[name].js',     // 生成的文件名
+    publicPath: '/build'      // 如果资源需要上传到cdn可以使用 http://mycdn/asset/
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -46,31 +46,26 @@ var clientConfig = {
   },
   watch: true,
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin(
-        {
-          name: 'vendor',
-          filename: '[name].js'
-        }
+    new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: '[name].js'}
     ),
     new ExtractTextPlugin('[name].css'),
   ]
-
-};
+}
 
 for (var i = 0; i < templateConfig.length; i++) {
   clientConfig.plugins.push(new HtmlWebpackPlugin(templateConfig[i]));
 }
 
 var serverConfig = {
-  watch:true,
+  watch: true,
   target: 'node',
   devtool: 'source-map',
   entry: {
     'cart': 'entry/cart-iso.server.js'
   },
   output: {
-    path: path.join(__dirname, '../server/dist'),//打包的目标目录
-    filename: '[name].js',     //生成的文件名
+    path: path.join(__dirname, '../server/dist'), // 打包的目标目录
+    filename: '[name].js',     // 生成的文件名
     libraryTarget: 'commonjs2'
   },
   resolve: {
@@ -107,6 +102,6 @@ var serverConfig = {
     new ExtractTextPlugin('[name].css')
   ]
 
-};
-console.log(process.env.NODE_ENV);
-module.exports = [clientConfig, serverConfig];
+}
+
+module.exports = [clientConfig, serverConfig]

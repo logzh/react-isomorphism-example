@@ -1,5 +1,4 @@
 import { createStore, applyMiddleware } from 'redux'
-import reducer from '../reducers/cart'
 import thunkMiddleware from 'redux-thunk'
 import apiMiddleware from '../middle/http'
 
@@ -10,6 +9,6 @@ let middleware = [thunkMiddleware, apiMiddleware]
 
 const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore)
 
-export function configureStore (initialState) {
+export default function configureStore (reducer, initialState) {
   return createStoreWithMiddleware(reducer, initialState)
 }

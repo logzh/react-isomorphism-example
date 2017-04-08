@@ -1,8 +1,6 @@
 var express = require('express')
 var router = express.Router()
 var axios = require('axios')
-var React = require('react')
-var ReactDomServer = require('react-dom/server')
 
 router.get('/', function (req, res, next) {
   var getData1 = function () {
@@ -37,12 +35,10 @@ router.get('/cart-iso', function (req, res, next) {
     })
 
     var props = {carts: carts, totalCount: totalCount, isShow: true}
-    var store = CartBundle.configureStore(props)
-    var html = ReactDomServer.renderToString(
-        React.createElement(CartBundle.Component, {store: store})
-    )
+    var initData = CartBundle.getInitState(props)
+    var html = CartBundle.getHtml(props)
 
-    res.render('cart-iso', {title: '同构直出', html: html, initData: store.getState()})
+    res.render('cart-iso', {title: '同构直出', html: html, initData: initData})
   }).catch(function (err) {
     next(err)
   })
