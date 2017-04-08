@@ -4,8 +4,7 @@
 public/build/*
 server/dist
 server/views/*
-!server/views/error.html
-!server/views/layout.html
+!server/views/layout/*
 npm-debug.log
 stats.json
 yarn-error.log
