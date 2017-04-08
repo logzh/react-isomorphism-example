@@ -1,5 +1,11 @@
 .idea/*
+.vscode
 /node_modules
-
+public/build/*
+server/dist
+server/views/*
+!server/views/error.html
+!server/views/layout.html
 npm-debug.log
 stats.json
+yarn-error.log
