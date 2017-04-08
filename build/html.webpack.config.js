@@ -1,6 +1,6 @@
-var path = require('path');
-var srcDir = path.resolve(__dirname, '../src/template');
-var distDir = path.join(__dirname, '../server/views');
+var path = require('path')
+var srcDir = path.resolve(__dirname, '../src/template')
+var distDir = path.join(__dirname, '../server/views')
 
 var config = [
   {
@@ -8,8 +8,7 @@ var config = [
     filename: distDir + '/cart.html',
     template: srcDir + '/cart.html',
     chunks: ['vendor', 'cart']
-  }
-  ,
+  },
   {
     title: 'cart-iso',
     filename: distDir + '/cart-iso.html',
@@ -17,6 +16,6 @@ var config = [
     chunks: ['vendor', 'cart-iso']
   }
 
-];
+]
 
-module.exports = config;
+module.exports = config

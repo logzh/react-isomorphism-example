@@ -53,7 +53,7 @@ var clientConfig = {
 }
 
 for (var i = 0; i < templateConfig.length; i++) {
-  clientConfig.plugins.push(new HtmlWebpackPlugin(templateConfig[i]));
+  clientConfig.plugins.push(new HtmlWebpackPlugin(templateConfig[i]))
 }
 
 var serverConfig = {

@@ -8,6 +8,10 @@
     "build:dev": "cross-env NODE_ENV=development webpack --config build/webpack.config.js",
     "validate": "npm ls"
   },
+  "engines": {
+    "node": ">=6.5",
+    "npm": ">=3.10"
+  },
   "dependencies": {
     "axios": "^0.15.2",
     "body-parser": "^1.15.2",
