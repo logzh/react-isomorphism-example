@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react'
-
-var App = function (props) {
+import React from 'react'
+import PropTypes from 'prop-types'
+const App = function (props) {
   return (
     <div>
       <div>{props.user.name }</div>

@@ -3,7 +3,7 @@ import {Types} from '../constants/cart'
 export * from './base/user'
 
 export function increaseCount (item) {
-  var {id, sizeId, count} = item
+  const {id, sizeId, count} = item
 
   return {
     url: `/mall/cart/${id}`,
@@ -14,7 +14,7 @@ export function increaseCount (item) {
 }
 
 export function decreaseCount (item) {
-  var {id, sizeId, count} = item
+  const {id, sizeId, count} = item
 
   return {
     url: `/mall/cart/${id}`,
@@ -25,7 +25,7 @@ export function decreaseCount (item) {
 }
 
 export function updateCount (data) {
-  var {id, sizeId, count} = data
+  const {id, sizeId, count} = data
 
   return {
     url: `/mall/cart/${id}`,
@@ -36,7 +36,7 @@ export function updateCount (data) {
 }
 
 export function deleteItem (item) {
-  var {id, sizeId} = item
+  const {id, sizeId} = item
 
   return {
     url: `/mall/cart/${id}`,
@@ -56,7 +56,7 @@ export function fetchCart () {
 }
 
 export function addCart (goods) {
-  var {sizeId} = goods
+  const {sizeId} = goods
 
   return {
     url: '/mall/cart',

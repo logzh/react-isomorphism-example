@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Empty from './Empty'
 import List from './List'
-var noop = function () {}
-var isNode = typeof window === 'undefined'
+const noop = function () {}
+const isNode = typeof window === 'undefined'
 if (!isNode) {
   require('./index.css')
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 
-var img = null
+let img = null
 
-var isNode = typeof window === 'undefined'
+const isNode = typeof window === 'undefined'
 if (!isNode) {
   img = require('./images/cart-null.png')
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import Item from './Item'
 
-var List = function (props) {
-  var totalPrice = 0
-  var createItem = (item, index) => (<Item item={item} key={index} {...props.actions} />)
+const List = function (props) {
+  let totalPrice = 0
+  const createItem = (item, index) => (<Item item={item} key={index} {...props.actions} />)
 
   props.items.map(function (item) {
     totalPrice += Math.floor(item.price * 100 * item.count) / 100
