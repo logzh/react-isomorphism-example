@@ -1,13 +1,13 @@
-var express = require('express')
-var router = express.Router()
-var axios = require('axios')
+const express = require('express')
+const router = express.Router()
+const axios = require('axios')
 
 router.get('/', function (req, res, next) {
-  var getData1 = function () {
+  const getData1 = function () {
     return axios.get('http://localhost:3000/cgi/user/info')
   }
 
-  var getData2 = function () {
+  const getData2 = function () {
     return axios.get('http://localhost:3000/cgi/mall/cart')
   }
 
@@ -24,19 +24,19 @@ router.get('/cart', function (req, res, next) {
 })
 
 router.get('/cart-iso', function (req, res, next) {
-  var CartBundle = require('../dist/cart')
+  const CartBundle = require('../dist/cart')
 
   axios.get('http://localhost:3000/cgi/mall/cart').then(function (respone) {
-    var carts = respone.data
-    var totalCount = 0
+    const carts = respone.data
+    let totalCount = 0
 
     carts.map(function (item) {
       totalCount += parseInt(item.count, 10)
     })
 
-    var props = {carts: carts, totalCount: totalCount, isShow: true}
-    var initData = CartBundle.getInitState(props)
-    var html = CartBundle.getHtml(props)
+    const props = {carts: carts, totalCount: totalCount, isShow: true}
+    const initData = CartBundle.getInitState(props)
+    const html = CartBundle.getHtml(props)
 
     res.render('cart-iso', {title: '同构直出', html: html, initData: initData})
   }).catch(function (err) {

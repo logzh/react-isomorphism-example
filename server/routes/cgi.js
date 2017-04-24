@@ -1,5 +1,5 @@
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
 
 router.put('/mall/cart/:id([0-9]+)', function (req, res, next) {
   res.json(require('../json/cart.json'))
