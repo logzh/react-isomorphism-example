@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const axios = require('axios')
 
-router.get('/', function (req, res, next) {
+router.get('/', async function (req, res, next) {
   const getData1 = function () {
     return axios.get('http://localhost:3000/cgi/user/info')
   }
@@ -11,12 +11,17 @@ router.get('/', function (req, res, next) {
     return axios.get('http://localhost:3000/cgi/mall/cart')
   }
 
-  axios.all([getData1(), getData2()])
-      .then(axios.spread(function (data1, data2) {
-        // Both requests are now complete
-      }))
+  try {
+    let data = await axios.all([getData1(), getData2()])
+    res.json({data1: data[0].data, data2: data[1].data})
+  } catch (err) {
+    next(err)
+  }
+  // .then(axios.spread(function (data1, data2) {
+  //   Both requests are now complete
+  // }))
 
-  res.render('home', {title: 'home'})
+  // res.render('home', {title: 'home'})
 })
 
 router.get('/cart', function (req, res, next) {

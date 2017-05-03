@@ -21,6 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, '../public')))
 
+app.use(function (req, res, next) {
+  next()
+})
+
 app.use('/', routes)
 app.use('/cgi', cgiRoute)
 
@@ -38,7 +42,7 @@ app.set('env', 'development')
 if (app.get('env') === 'development') {
   app.use(function (err, req, res, next) {
     res.status(err.status || 500)
-    res.render('error', {
+    res.render('layout/error', {
       message: err.message,
       error: err
     })
