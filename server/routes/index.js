@@ -12,8 +12,8 @@ router.get('/', async function (req, res, next) {
   }
 
   try {
-    let data = await axios.all([getData1(), getData2()])
-    res.json({data1: data[0].data, data2: data[1].data})
+    let [data1, data2] = await axios.all([getData1(), getData2()])
+    res.json({data1: data1.data, data2: data2.data})
   } catch (err) {
     next(err)
   }
